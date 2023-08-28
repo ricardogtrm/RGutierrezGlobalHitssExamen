@@ -1,0 +1,153 @@
+﻿@model ML.Empleado
+@{
+    ViewData["Title"] = "Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <center><h1>EMPLEADOS</h1></center>
+        <hr />
+    </div>
+</div>
+<div class="container">
+    <center><h5>Rellene todos los campos</h5></center>
+    <br />
+</div>
+<br />
+<div class="container-fluid">
+    @using (Html.BeginForm("Form", "Empleado", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <br />
+        <div class="row">
+            <div class="col-md-12">
+                <center><h4>Datos personales</h4></center>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                @Html.LabelFor(model => model.IdEmpleado, new { @class = "control-label"})
+                <div class="input-group">
+                    <label class="input-group-text" for="inputGroupSelect01"><i class="bi bi-person-vcard-fill visually-hidden"></i></label>
+                    @Html.TextBoxFor(model => model.IdEmpleado, new { @class = "form-control visually-hidden" })
+                    @Html.ValidationMessageFor(model => model.IdEmpleado)
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.Nombre, new{ @class = "control-label" })
+                <div class="input-group">
+                    <label class="input-group-text" for="inputGroupSelect01"><i class="bi bi-person-badge-fill"></i></label>
+                    @Html.TextBoxFor(model => model.Nombre, new{ @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Nombre)
+                </div>
+            </div>
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.ApellidoPaterno, new{ @class = "control-label" })
+                <div class="input-group">
+                    <label class="input-group-text" for="inputGroupSelect01"><i class="bi bi-person-badge-fill"></i></label>
+                    @Html.TextBoxFor(model => model.ApellidoPaterno, new{ @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ApellidoPaterno)
+                </div>
+            </div>
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.ApellidoMaterno, new{ @class = "control-label" })
+                <div class="input-group">
+                    <label class="input-group-text" for="inputGroupSelect01"><i class="bi bi-person-badge-fill"></i></label>
+                    @Html.TextBoxFor(model => model.ApellidoMaterno, new{ @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ApellidoMaterno)
+                </div>
+            </div>
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.Direccion, new{ @class = "control-label" })
+                <div class="input-group">
+                    <label class="input-group-text" for="inputGroupSelect01"><i class="bi bi-calendar-check-fill"></i></label>
+                    @Html.TextBoxFor(model => model.Direccion, new{ @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Direccion)
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.Edad, new{ @class = "control-label" })
+                <div class="input-group">
+                    <label class="input-group-text" for="inputGroupSelect01"><i class="bi bi-file-medical-fill"></i></label>
+                    @Html.TextBoxFor(model => model.Edad, new{ @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Edad)
+                </div>
+            </div>
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.Telefono, new{ @class = "control-label" })
+                <div class="input-group">
+                    <label class="input-group-text" for="inputGroupSelect01"><i class="bi bi-phone-fill"></i></label>
+                    @Html.TextBoxFor(model => model.Telefono, new{ @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Telefono)
+                </div>
+            </div>
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.Sexo, new{ @class = "control-label" })
+                <div class="input-group">
+                    <label class="input-group-text" for="inputGroupSelect01" id="lblEmail"><i class="bi bi-envelope-at-fill"></i></label>
+                    Masculino
+                    @Html.RadioButtonFor(model => model.Sexo, "M")
+                    Femenino
+                    @Html.RadioButtonFor(model => model.Sexo, "F")
+                    @Html.ValidationMessageFor(model => model.Sexo)
+                </div>
+            </div>
+            @*<div class="col-md-3">
+                @Html.LabelFor(model => model.FechaIngreso, new{ @class = "control-label" })
+                <div class="input-group">
+                    <label class="input-group-text" for="inputGroupSelect01" id="lblEmailValidacion"><i class="bi bi-envelope-exclamation-fill"></i></label>
+                    @Html.TextBoxFor(model => model.FechaIngreso, new{ @class = "form-control", @id = "datepicker" })
+                    @Html.ValidationMessageFor(model => model.FechaIngreso)
+                </div>
+            </div>*@
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.Salario, new{ @class = "control-label" })
+                <div class="input-group">
+                    <label class="input-group-text" for="inputGroupSelect01" id="lblEmailValidacion"><i class="bi bi-envelope-exclamation-fill"></i></label>
+                    @Html.TextBoxFor(model => model.Salario, new{ @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Salario)
+                </div>
+            </div>
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.Sucursal.IdSucursal, new{ @class = "control label" })
+                <div class="input-group">
+                    <label class="input-group-text" for="inputGroupSelect01" id="lblEmpresa"><i class="bi bi-building-fill"></i></label>
+                    @Html.DropDownListFor(model => model.Sucursal.IdSucursal, new SelectList(Model.Sucursal.Sucursales, "IdSucursal", "Nombre"), "Selecciona una oppcion", new{ @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Sucursal.IdSucursal)
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-success col-md-12 bi bi-plus-square-fill"> @ViewBag.Accion</button>
+            </div>
+            <div class="col-md-6">
+                @Html.ActionLink(" Regresar", "GetAll", "Empleado", new{}, new { @class = "btn btn-danger col-md-12 bi bi-backspace-fill" })
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#datepicker").datepicker();
+            $("#datepicker").datepicker("option", "dateFormat", "dd/mm/yy");
+        });
+    </script>
+}
